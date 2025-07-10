@@ -8,6 +8,8 @@ def lookup_ip(ip_address: str):
     try:
         response = reader.city(ip_address)
         return {
+            "country": response.country.name if response.country.name else "",
+            "city": response.city.name if response.city.name else "",
             "latitude": response.location.latitude,
             "longitude": response.location.longitude,
             "time_zone": response.location.time_zone
